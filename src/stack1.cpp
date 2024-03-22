@@ -18,21 +18,15 @@ private:
 public:
     Stack() : top(nullptr) {}
 
-    ~Stack() {
-        while (top != nullptr) {
-            Node<T>* temp = top;
-            top = top->next;
-            delete temp;
-        }
-    }
-
-    void push(const T & val) {
+    void push(const T val) {
         auto newNode = new Node<T>(val);
         newNode->next = top;
         top = newNode;
     }
 
-    void push2(T&& val) {
+    template <class B>
+
+    void push(B&& val) {
         auto newNode = new Node<T>(val);
         newNode->next = top;
         top = newNode;
